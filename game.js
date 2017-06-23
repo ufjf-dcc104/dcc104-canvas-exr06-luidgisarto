@@ -9,18 +9,19 @@ var frame = 0;
 
 function inicializar() {
     canvas = document.getElementsByTagName('canvas')[0];
-    canvas.width = 520;
-    canvas.height = 480;
+    canvas.width = 800;
+    canvas.height = 800;
     ctx = canvas.getContext("2d");
     images = new ImageLoader();
-    map = new Map(4, 4);
+    map = new Map(20, 20);
     map.images = images;
-    map.mapearCelulas([
-        [1, 1, 1, 1],
-        [1, 0, 0, 1,],
-        [1, 0, 0, 1,],
-        [2, 1, 1, 1,],
-    ]);
+    map.gerarMapaAleatorio();
+    // map.mapearCelulas([
+    //     [2, 1, 1, 1, 2],
+    //     [2, 0, 0, 1, 2],
+    //     [2, 0, 1, 1, 2],
+    //     [2, 1, 1, 1, 2],
+    // ]);
     pc = new Sprite();
     pc.x = 60;
     pc.y = 60;

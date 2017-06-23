@@ -66,12 +66,12 @@ Map.prototype.mapearCelulas = function (celulas) {
                     var bloco = new Sprite();
                     bloco.images = images;
                     bloco.tipo = 0;
-                    bloco.x = i * this.tamanho;
-                    bloco.y = j * this.tamanho;
+                    bloco.x = (i + 0.5) * this.tamanho;
+                    bloco.y = (j + 0.5) * this.tamanho;
                     this.celulas[i][j] = bloco;
                     break;
                 case 1:
-                    tesouro = new Sprite();
+                    var tesouro = new Sprite();
                     tesouro.images = this.images;
                     tesouro.tipo = 1;
                     tesouro.y = (i + 0.5) * this.tamanho;
@@ -82,7 +82,7 @@ Map.prototype.mapearCelulas = function (celulas) {
                 case 2:
                     mina = new Sprite();
                     mina.images = this.images;
-                    tesouro.tipo = 2;
+                    mina.tipo = 2;
                     mina.y = (i + 0.5) * this.tamanho;
                     mina.x = (j + 0.5) * this.tamanho;
                     this.celulas[i][j] = mina;
@@ -102,3 +102,40 @@ Map.prototype.mover = function (dt) {
         this.minas[i].mover(this, dt);
     }
 };
+
+Map.prototype.gerarMapaAleatorio = function () {
+
+    var minas = 0;
+    var tesouros = 0;
+
+    for (var i = 0; i < this.celulas.length; i++) {
+        for (var j = 0; j < this.celulas[i].length; j++) {
+
+            var obj = new Sprite();
+            obj.images = this.images;
+            obj.tipo = Math.round(Math.random() * 3);
+            obj.y = (i + 0.5) * this.tamanho;
+            obj.x = (j + 0.5) * this.tamanho;
+
+            // if(obj.tipo === 1){
+            //     tesouros++;
+            // }
+            // else if(obj.tipo === 2){
+            //     minas++;
+            // }
+
+            // if(tesouros > 19  && obj.tipo === 1){
+            //     obj.tipo = 0;
+            // }
+            
+            // else if(minas > 15 && obj.tipo === 2){
+            //     obj.tipo = 0;
+            // }
+            
+            // var posicaoLinha = Math.floor(Math.random()*this.celulas.length);
+            // var posicaoColuna = Math.floor(Math.random())
+
+            this.celulas[i][j] = obj;
+        }
+    }
+}
