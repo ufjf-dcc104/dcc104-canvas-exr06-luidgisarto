@@ -113,7 +113,7 @@ Map.prototype.gerarMapaAleatorio = function () {
 
             var obj = new Sprite();
             obj.images = this.images;
-            obj.tipo = Math.round(Math.random() * 3);
+            obj.tipo = Math.round(Math.random() * 2);
             obj.y = (i + 0.5) * this.tamanho;
             obj.x = (j + 0.5) * this.tamanho;
 
@@ -132,8 +132,10 @@ Map.prototype.gerarMapaAleatorio = function () {
             //     obj.tipo = 0;
             // }
             
-            // var posicaoLinha = Math.floor(Math.random()*this.celulas.length);
-            // var posicaoColuna = Math.floor(Math.random())
+            // var posicaoLinha = Math.round(Math.random() * (this.celulas.length -1));
+            // var posicaoColuna = Math.round(Math.random() * (this.celulas[0].length-1));
+
+            // this.celulas[posicaoLinha][posicaoColuna] = obj;
 
             this.celulas[i][j] = obj;
         }
