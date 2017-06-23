@@ -13,15 +13,14 @@ function inicializar() {
     canvas.height = 480;
     ctx = canvas.getContext("2d");
     images = new ImageLoader();
-    map = new Map(Math.floor(canvas.height / 40), Math.floor(canvas.width / 40));
+    map = new Map(4, 4);
     map.images = images;
-    map.mapearCelulas(
-        [1, 1, 1, 1,],
+    map.mapearCelulas([
+        [1, 1, 1, 1],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [2, 1, 1, 1,],
-        
-    );
+    ]);
     pc = new Sprite();
     pc.x = 60;
     pc.y = 60;
